@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1E7103121F10F2C4002EBF57 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7103111F10F2C4002EBF57 /* PresentViewController.swift */; };
+		67379372202EDDB4003CDD4D /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6737936E202EDDB2003CDD4D /* camera.png */; };
+		67379373202EDDB4003CDD4D /* tag1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6737936F202EDDB3003CDD4D /* tag1.png */; };
+		67379374202EDDB4003CDD4D /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 67379370202EDDB3003CDD4D /* album.png */; };
+		67379375202EDDB4003CDD4D /* tag2.png in Resources */ = {isa = PBXBuildFile; fileRef = 67379371202EDDB3003CDD4D /* tag2.png */; };
 		674003321ED98A8100E2A6E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674003311ED98A8100E2A6E5 /* ProfileViewController.swift */; };
 		67AEC8471EEBCD300088F289 /* CheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AEC8461EEBCD300088F289 /* CheckTableViewController.swift */; };
 		67AEC8491EEBD3BD0088F289 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AEC8481EEBD3BD0088F289 /* SetViewController.swift */; };
@@ -42,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		1E7103111F10F2C4002EBF57 /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
+		6737936E202EDDB2003CDD4D /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		6737936F202EDDB3003CDD4D /* tag1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tag1.png; sourceTree = "<group>"; };
+		67379370202EDDB3003CDD4D /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
+		67379371202EDDB3003CDD4D /* tag2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tag2.png; sourceTree = "<group>"; };
 		674003311ED98A8100E2A6E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		67AEC8461EEBCD300088F289 /* CheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewController.swift; sourceTree = "<group>"; };
 		67AEC8481EEBD3BD0088F289 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +148,10 @@
 				67C95AB31EC6F62000B3A0FF /* Assets.xcassets */,
 				67C95AB51EC6F62000B3A0FF /* LaunchScreen.storyboard */,
 				67C95AB81EC6F62000B3A0FF /* Info.plist */,
+				67379370202EDDB3003CDD4D /* album.png */,
+				6737936E202EDDB2003CDD4D /* camera.png */,
+				6737936F202EDDB3003CDD4D /* tag1.png */,
+				67379371202EDDB3003CDD4D /* tag2.png */,
 			);
 			path = Lily_app;
 			sourceTree = "<group>";
@@ -273,9 +285,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				67AEC84D1EEC04B60088F289 /* icon_114530_256.png in Resources */,
+				67379375202EDDB4003CDD4D /* tag2.png in Resources */,
 				67C95AB71EC6F62000B3A0FF /* LaunchScreen.storyboard in Resources */,
+				67379374202EDDB4003CDD4D /* album.png in Resources */,
+				67379373202EDDB4003CDD4D /* tag1.png in Resources */,
 				67C95AB41EC6F62000B3A0FF /* Assets.xcassets in Resources */,
 				67C95AB21EC6F62000B3A0FF /* Main.storyboard in Resources */,
+				67379372202EDDB4003CDD4D /* camera.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
