@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  Lily_app
 //
-//  Created by SoichiFurukawa on 2017/05/27.
+//  Created by Lily Isomata on 2017/05/27.
 //  Copyright © 2017年 soufuru. All rights reserved.
 //
 
@@ -21,56 +21,45 @@ extension UITextField {
 }
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
-    
+    @IBOutlet var namelabel: UILabel!
+    @IBOutlet var birthdaylabel: UILabel!
     
     let ud = UserDefaults.standard
     //選択したセルの番号を取得
     var index : Int?
     var nameArray : Array<String> = []
-    
+    var birthdayArray : Array<String> = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        let border = CALayer()
-        let width = CGFloat(2.0)
-        
-        border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: nameTextField.frame.size.height - width, width:  nameTextField.frame.size.width, height: 1)
-        border.borderWidth = width
-        
-        nameTextField.layer.addSublayer(border)
-        nameTextField.placeholder = "Megumi"
-        nameTextField.addUnderline(width: 1.0, color: UIColor.black)
-        
-        
-        _ = CALayer()
-        _ = CGFloat(2.0)
-        
-        border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: birthdayTextField.frame.size.height - width, width:  birthdayTextField.frame.size.width, height: 1)
-        border.borderWidth = width
-        
-        birthdayTextField.layer.addSublayer(border)
-        birthdayTextField.placeholder = "3/30"
-        
-        
 
-
+        namelabel.font = UIFont(name: "07LogoTypeGothic-Condense", size: 20)
+        birthdaylabel.font = UIFont(name: "07LogoTypeGothic-Condense", size: 20)
+        
+        //textfieldを打ち終わった時にキーボードを閉じるためのdelegate
+        nameTextField.delegate = self
+        birthdayTextField.delegate = self
+        
+        
+        
         //配列が存在するなら(まあこのViewに来るまでには存在しているはず)配列を取得
         if let aaa = ud.object(forKey: "name"){
             nameArray = aaa as! Array<String>
             self.nameTextField.text = nameArray[index!]
         }
+        
+        if let bbb = ud.object(forKey: "birthday"){
+            birthdayArray = bbb as! Array<String>
+            self.birthdayTextField.text = birthdayArray[index!]
+        } else {
+            birthdayArray.append("/")
+        }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,26 +72,36 @@ class ProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         //選択したセルの番号と同じところに保存
         nameArray[index!] = self.nameTextField.text!
+        birthdayArray[index!] = self.birthdayTextField.text!
         
         //新規作成していたなら
         if (index == nameArray.count-1){
-            nameArray.append("新規作成")
+            nameArray.append("New friends")
+            birthdayArray.append("/")
         }
         
         //userdefaultsに保存
         ud.set(nameArray, forKey: "name")
+        ud.set(birthdayArray, forKey: "birthday")
         ud.synchronize()
         
     }
     
+    
+    //textFieldを打ち終わった時にキーボードを閉じるメソッド
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 10;
+        // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる,100にしとけば足りなくならないでしょう
+        return 100;
     }
     
 

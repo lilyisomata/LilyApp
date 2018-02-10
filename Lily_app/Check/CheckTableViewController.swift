@@ -23,7 +23,7 @@ class CheckTableViewController: UITableViewController {
             checkArray = aaa as! Array<String>
         } else {
             //存在しないなら「新規作成」という名前の配列を追加し、保存
-            checkArray.append("新規作成")
+            checkArray.append("New event")
             ud.set(checkArray, forKey: "check")
         }
         
@@ -65,16 +65,11 @@ class CheckTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //tableviewのcellに表示されるtextはcheckArrayのcellのindexpathに入っているtext
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2")
-       // let title = UserDefaults.standard.string(forKey :"Title\(String(describing: indexPath.row))")
-        cell?.textLabel?.text = checkArray[indexPath.row]
+              cell?.textLabel?.text = checkArray[indexPath.row]
         
-      //  if title == nil {
-       //     cell!.textLabel!.text = String(indexPath.row)
-       // } else {
-         //   cell!.textLabel!.text = title!
-       // }
-        
+      
         
         return cell!
     }

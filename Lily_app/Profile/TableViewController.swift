@@ -34,7 +34,7 @@ class TableViewController: UITableViewController {
             nameArray = aaa as! Array<String>
         } else {
         //存在しないなら「新規作成」という名前の配列を追加し、保存
-            nameArray.append("新規作成")
+            nameArray.append("New friends")
             ud.set(nameArray, forKey: "name")
         }
 
@@ -52,6 +52,7 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        tableView.separatorInset = .zero
         
     }
 

@@ -43,29 +43,30 @@ extension UIView {
 }
 
 
-class PresentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PresentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
    
     @IBOutlet var cameraImageView: UIImageView!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var memoTextView: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateTextField.delegate = self
+
         let border = CALayer()
         let width = CGFloat(2.0)
         
-        border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: dateTextField.frame.size.height - width, width:  dateTextField.frame.size.width, height: 1)
+        border.borderColor = UIColor.darkGray.cgColor
+        border.frame = CGRect(x: 0, y: dateTextField.frame.size.height - width, width:  dateTextField.frame.size.width, height: 4)
         border.borderWidth = width
         
-        dateTextField.placeholder = "12/25"
         dateTextField.layer.addSublayer(border)
+        dateTextField.addUnderline(width: 2.0, color: UIColor.darkGray)
         
-
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +75,10 @@ class PresentViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func camera(){
+        
+        print("pushed")
+            
+            
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
         
         let picker = UIImagePickerController()
@@ -85,10 +90,14 @@ class PresentViewController: UIViewController, UIImagePickerControllerDelegate, 
     } else {
     
     print("error")
-    //アラート出してもいいんじゃね？？
+    //アラート
+            let alert: UIAlertController = UIAlertController(title: "Erorr", message: "カメラを起動できません", preferredStyle: .alert)
+            
         }
     }
 
+    
+    //写真を持ってくる
     @objc(imagePickerController:didFinishPickingMediaWithInfo:) func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         cameraImageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
         
@@ -111,7 +120,11 @@ class PresentViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
+    //textFieldを打ち終わった時にキーボードを閉じるメソッド
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     /*
     // MARK: - Navigation

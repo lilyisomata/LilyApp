@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,setTableViewCellDelegate {
     
 //    タイトル
     @IBOutlet weak var TitleTextField: UITextField!
@@ -20,28 +20,28 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
 
 
-    @IBOutlet weak var cellLabel: UILabel!
-   
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //TitleTextField.text = UserDefaults.standard.string(forKey: "Title\(String(describing: CheckTableViewIndex!))")
         
+        
+       
         
         //titletextfieldいじり
         let border = CALayer()
         let width = CGFloat(2.0)
         
         border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: TitleTextField.frame.size.height - width, width:  TitleTextField.frame.size.width, height: 1)
+        border.frame = CGRect(x: 0, y: TitleTextField.frame.size.height - width, width:  TitleTextField.frame.size.width, height: 4)
         border.borderWidth = width
         
         
         TitleTextField.layer.addSublayer(border)
-        TitleTextField.placeholder = "Christmas Present"
         
         
+       
+       
         //配列が存在するなら(まあこのViewに来るまでには存在しているはず)配列を取得
         if let aaa = ud.object(forKey: "check"){
             checkArray = aaa as! Array<String>
@@ -50,7 +50,9 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
 
+   
     
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,7 +68,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         //新規作成していたなら
         if (CheckTableViewIndex == checkArray.count-1){
-            checkArray.append("新規作成")
+            checkArray.append("New event")
         }
         
         //userdefaultsに保存
@@ -74,9 +76,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         ud.synchronize()
 
         
-//        タイトルを保存
-       // UserDefaults.standard.set(TitleTextField.text, forKey: "Title\(String(describing: CheckTableViewIndex!))")
-
     }
     
     
@@ -89,9 +88,16 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath as IndexPath) as! SetTableViewCell
         
-//         cellにCheckTableViewとSetTableViewのインデックスをわたす
+        //cell.initialize()
+        cell.delegate = self
+        //  cellにCheckTableViewとSetTableViewのインデックスをわたす
         cell.key = "\(String(describing: CheckTableViewIndex!))\(indexPath.row)"
         
+        //celldelegateの先がcellということを設定
+        cell.textfield.delegate = cell
+        cell.textfield.text = UserDefaults.standard.string(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)")
+        
+        //α値（チェックマークの色の濃さ）の設定
         let buttonAlpha = ud.float(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)1")
         
         if  buttonAlpha == 0 || buttonAlpha == 0.05{
@@ -110,6 +116,13 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         
         return cell
+    }
+    
+    
+    func doubleButtonPushed(_ sender: UIButton) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier:"PresentView")
+        self.show(nextView, sender: nil)
     }
     
     
