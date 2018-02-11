@@ -86,25 +86,29 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.CheckViewIndexPath = CheckTableViewIndex!
         cell.indexPath = indexPath.row
         
-        //     celldelegateの委譲先がcellということを設定
+        // celldelegateの委譲先がcellということを設定
         cell.textfield.delegate = cell
-        //     cellのテキストを指定
+        // cellのテキストを指定
         cell.textfield.text = saveData[CheckTableViewIndex!].text[indexPath.row].text
         
+        print(saveData[CheckTableViewIndex!].highrighted[indexPath.row])
+
         //     α値（チェックマークの色の濃さ）の設定
         let buttonAlpha = saveData[CheckTableViewIndex!].highrighted[indexPath.row].highright1
-        if  buttonAlpha == 0.0500000007450581 || buttonAlpha == 0{
+        if  buttonAlpha <= 0.6{
             cell.Button!.alpha = 0.05
         } else {
-            cell.Button!.alpha = 1
+            cell.Button!.alpha = 1.0
         }
         
         let buttonAlpha2 = saveData[CheckTableViewIndex!].highrighted[indexPath.row].highright2
-        if  buttonAlpha2 == 0.0500000007450581 || buttonAlpha2 == 0{
+        
+        if  buttonAlpha2 <= 0.6 {
             cell.Button2!.alpha = 0.05
         } else {
-            cell.Button2!.alpha = 1
+            cell.Button2!.alpha = 1.0
         }
+        
         
         return cell
     }
@@ -117,6 +121,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         UserDefaults.standard.set(key, forKey: "presentKey")
         self.show(nextView, sender: key)
+        
+        
     }
     
     /*

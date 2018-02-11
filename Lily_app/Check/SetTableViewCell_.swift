@@ -40,14 +40,17 @@ class SetTableViewCell: UITableViewCell, UITextFieldDelegate{
             if sender.tag == 1{
                 newData.highright1 = Double(sender.alpha)
                 newData.highright2 = Double(Button2.alpha)
+                
             } else {
                 newData.highright1 = Double(Button.alpha)
                 newData.highright2 = Double(sender.alpha)
+                
             }
             saveData[CheckViewIndexPath].highrighted[indexPath] = newData
+            
         }
         
-        print(saveData[CheckViewIndexPath].highrighted[indexPath])
+        
     }
     
     //doubleButtonPushedされたら、double〜のdelegeteに行く

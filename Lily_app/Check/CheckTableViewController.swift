@@ -19,10 +19,6 @@ class CheckTableViewController: UITableViewController {
     let realm = try! Realm()
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        //        let saveData = realm.objects(CheckViewSaveData.self)
-        //        print(saveData)
-        
         //tableViewの更新
         self.tableView.reloadData()
         
