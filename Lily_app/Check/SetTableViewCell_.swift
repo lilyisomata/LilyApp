@@ -61,10 +61,18 @@ class SetTableViewCell: UITableViewCell, UITextFieldDelegate{
     //入力が終わったタイミングでテキストフィールドのテキスト保存
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         let saveData = realm.objects(CheckViewSaveData.self)
+        
         try! realm.write {
-            saveData[CheckViewIndexPath].text[indexPath].text = self.textfield.text!
+            let newData = textFieldArray()
+            for i in 0 ..< 10{
+                if i == indexPath {
+                    newData.text = self.textfield.text!
+                    saveData[CheckViewIndexPath].text[i] = newData
+                }
+            }
+            
         }
-        //        UserDefaults.standard.set(textField.text!, forKey: key)
+        
         return true
     }
     

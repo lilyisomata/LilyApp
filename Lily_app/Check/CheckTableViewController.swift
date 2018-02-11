@@ -76,7 +76,6 @@ class CheckTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //tableviewのcellに表示されるtextはcheckArrayのcellのindexpathに入っているtext
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2")
-        
         let saveData = realm.objects(CheckViewSaveData.self)
         cell?.textLabel?.text = saveData[indexPath.row].title
         
@@ -96,26 +95,15 @@ class CheckTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+
+
+            let saveData = realm.objects(CheckViewSaveData.self)
+            let deleteData = saveData[indexPath.row]
             
-            checkArray.remove(at: indexPath.row)
-            ud.set(checkArray, forKey: "check")
-            
-            for i in 0 ..< 9{
-                ud.removeObject(forKey: "\(indexPath.row)"+"\(i)")
-                ud.removeObject(forKey: "\(indexPath.row)"+"\(i)"+"1")
-                ud.removeObject(forKey: "\(indexPath.row)"+"\(i)"+"2")
+            try! realm.write {
+                realm.delete(deleteData)
             }
             
-            // todo: CollectionViewの番号に対応したキーの情報も削除
-            for i in indexPath.row+1 ..< 10{
-                for j in 0 ..< 10{
-                    ud.set(ud.string(forKey: "\(i+1)"+"\(j)"), forKey: "\(i)"+"\(j)")
-                    ud.set(ud.float(forKey: "\(i+1)"+"\(j)"+"1"), forKey: "\(i)"+"\(j)"+"1")
-                    ud.set(ud.float(forKey: "\(i+1)"+"\(j)"+"2"), forKey: "\(i)"+"\(j)"+"2")
-                }
-            }
-            
-            ud.synchronize()
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {

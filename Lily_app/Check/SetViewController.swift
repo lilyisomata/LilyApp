@@ -43,6 +43,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         
         let saveData = realm.objects(CheckViewSaveData.self)
@@ -63,12 +64,9 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     newData.highrighted.append(hArray)
                     newData.text.append(tArray)
                 }
-                
                 realm.add(newData)
             }
         }
-        
-        
     }
     
     //    UITableViewDataSourceのデリゲートメソッド
@@ -91,8 +89,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // cellのテキストを指定
         cell.textfield.text = saveData[CheckTableViewIndex!].text[indexPath.row].text
         
-        print(saveData[CheckTableViewIndex!].highrighted[indexPath.row])
-
         //     α値（チェックマークの色の濃さ）の設定
         let buttonAlpha = saveData[CheckTableViewIndex!].highrighted[indexPath.row].highright1
         if  buttonAlpha <= 0.6{
@@ -102,14 +98,11 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         let buttonAlpha2 = saveData[CheckTableViewIndex!].highrighted[indexPath.row].highright2
-        
         if  buttonAlpha2 <= 0.6 {
             cell.Button2!.alpha = 0.05
         } else {
             cell.Button2!.alpha = 1.0
         }
-        
-        
         return cell
     }
     
@@ -121,8 +114,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         UserDefaults.standard.set(key, forKey: "presentKey")
         self.show(nextView, sender: key)
-        
-        
     }
     
     /*

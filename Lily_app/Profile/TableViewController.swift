@@ -80,7 +80,7 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         // セーブデータを取得
         let saveData = realm.objects(ProfileViewSaveData.self)
-        cell?.textLabel?.text = String(indexPath.row) + saveData[indexPath.row].title
+        cell?.textLabel?.text = saveData[indexPath.row].title
         
         return cell!
     }
