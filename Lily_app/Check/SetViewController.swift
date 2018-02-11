@@ -7,134 +7,128 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,setTableViewCellDelegate {
     
-//    タイトル
+    //    タイトル
     @IBOutlet weak var TitleTextField: UITextField!
-//     CheckTableViewのインデックス値を保持しておく変数
+    //     CheckTableViewのインデックス値を保持しておく変数
     var CheckTableViewIndex : Int?
-    
     var checkArray : Array<String> = []
-    let ud = UserDefaults.standard
     
-
-
-        
+    var key : String = ""
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-       
-        
+        //------------------りりーデザイン-------------------------------//
         //titletextfieldいじり
         let border = CALayer()
         let width = CGFloat(2.0)
         
         border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: TitleTextField.frame.size.height - width, width:  TitleTextField.frame.size.width, height: 4)
+        border.frame = CGRect(x: 0, y: TitleTextField.frame.size.height - width, width:  TitleTextField.frame.size.width, height: 1)
         border.borderWidth = width
         
-        
         TitleTextField.layer.addSublayer(border)
+        //------------------------------------------------------------//
+        let saveData = realm.objects(CheckViewSaveData.self)
+        self.TitleTextField.text = saveData[CheckTableViewIndex!].title
         
-        
-       
-       
-        //配列が存在するなら(まあこのViewに来るまでには存在しているはず)配列を取得
-        if let aaa = ud.object(forKey: "check"){
-            checkArray = aaa as! Array<String>
-            self.TitleTextField.text = checkArray[CheckTableViewIndex!]
-        }
     }
-
-
-   
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         
+        let saveData = realm.objects(CheckViewSaveData.self)
         
-        //選択したセルの番号と同じところに保存
-        checkArray[CheckTableViewIndex!] = self.TitleTextField.text!
-        
-        //新規作成していたなら
-        if (CheckTableViewIndex == checkArray.count-1){
-            checkArray.append("New event")
+        try! realm.write {
+            saveData[CheckTableViewIndex!].title = self.TitleTextField.text!
+            
+            //最後のビューなら次のビューを追加
+            if CheckTableViewIndex == saveData.count - 1{
+                let newData = CheckViewSaveData()
+                newData.title = "new"
+                let hArray = highrightArray()
+                hArray.highright1 = 0.0
+                hArray.highright2 = 0.0
+                let tArray = textFieldArray()
+                tArray.text = ""
+                for _ in 0 ..< 10 {
+                    newData.highrighted.append(hArray)
+                    newData.text.append(tArray)
+                }
+                
+                realm.add(newData)
+            }
         }
         
-        //userdefaultsに保存
-        ud.set(checkArray, forKey: "check")
-        ud.synchronize()
-
         
     }
     
-    
-//    UITableViewDataSourceのデリゲートメソッド
+    //    UITableViewDataSourceのデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 10
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath as IndexPath) as! SetTableViewCell
+        let saveData = realm.objects(CheckViewSaveData.self)
         
-        //cell.initialize()
         cell.delegate = self
-        //  cellにCheckTableViewとSetTableViewのインデックスをわたす
-        cell.key = "\(String(describing: CheckTableViewIndex!))\(indexPath.row)"
+        cell.CheckViewIndexPath = CheckTableViewIndex!
+        cell.indexPath = indexPath.row
         
-        //celldelegateの先がcellということを設定
+        //     celldelegateの委譲先がcellということを設定
         cell.textfield.delegate = cell
-        cell.textfield.text = UserDefaults.standard.string(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)")
+        //     cellのテキストを指定
+        cell.textfield.text = saveData[CheckTableViewIndex!].text[indexPath.row].text
         
-        //α値（チェックマークの色の濃さ）の設定
-        let buttonAlpha = ud.float(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)1")
-        
-        if  buttonAlpha == 0 || buttonAlpha == 0.05{
+        //     α値（チェックマークの色の濃さ）の設定
+        let buttonAlpha = saveData[CheckTableViewIndex!].highrighted[indexPath.row].highright1
+        if  buttonAlpha == 0.0500000007450581 || buttonAlpha == 0{
             cell.Button!.alpha = 0.05
         } else {
             cell.Button!.alpha = 1
         }
         
-        let buttonAlpha2 = UserDefaults.standard.float(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)2")
-        
-        if  buttonAlpha2 == 0 || buttonAlpha2 == 0.05{
+        let buttonAlpha2 = saveData[CheckTableViewIndex!].highrighted[indexPath.row].highright2
+        if  buttonAlpha2 == 0.0500000007450581 || buttonAlpha2 == 0{
             cell.Button2!.alpha = 0.05
         } else {
             cell.Button2!.alpha = 1
         }
         
-        
         return cell
     }
     
     
+    //デリゲートメソッド
     func doubleButtonPushed(_ sender: UIButton) {
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier:"PresentView")
-        self.show(nextView, sender: nil)
+        
+        UserDefaults.standard.set(key, forKey: "presentKey")
+        self.show(nextView, sender: key)
     }
-    
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
 }
+

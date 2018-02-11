@@ -6,7 +6,7 @@ target 'Lily_app' do
   use_frameworks!
 
   # Pods for Lily_app
-pod 'RealmSwift'
+  pod 'RealmSwift'
   target 'Lily_appTests' do
     inherit! :search_paths
     # Pods for testing

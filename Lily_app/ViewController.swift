@@ -7,16 +7,12 @@
 //
 
 import UIKit
-
-
-
+import RealmSwift
 
 class ViewController: UIViewController {
     
-    
     //フォント設定ロゴたいぷゴシック
-   // guard; let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
-    
+    // guard; let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
     
 
     override func viewDidLoad() {
@@ -26,15 +22,17 @@ class ViewController: UIViewController {
         //フォント設定ロゴたいぷゴシック
        // guard let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
         
-        
-        
-        
         //アプリを開始するたびにUserDefaultsの中身をリセット
         let ud = UserDefaults.standard
         ud.removeObject(forKey: "name")
         ud.removeObject(forKey: "check")
         ud.removeObject(forKey: "birthday")
-        //ud.removeObject(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)")
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+        
         
     }
 
