@@ -19,10 +19,6 @@ class CheckTableViewController: UITableViewController {
     let realm = try! Realm()
     
     override func viewWillAppear(_ animated: Bool) {
-<<<<<<< HEAD
-        
-       
-        
         //-------------------名前リストの取得-------------------------//
         
         //名前リストが既に存在するならそのリストを取得
@@ -33,9 +29,6 @@ class CheckTableViewController: UITableViewController {
             checkArray.append("New event")
             ud.set(checkArray, forKey: "check")
         }
-        
-=======
->>>>>>> master
         //tableViewの更新
         self.tableView.reloadData()
         
@@ -97,16 +90,11 @@ class CheckTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //tableviewのcellに表示されるtextはcheckArrayのcellのindexpathに入っているtext
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2")
-<<<<<<< HEAD
-              cell?.textLabel?.text = checkArray[indexPath.row]
+
         cell?.textLabel?.font = UIFont(name:"07LogoTypeGothic7", size:20)
       
-=======
         let saveData = realm.objects(CheckViewSaveData.self)
         cell?.textLabel?.text = saveData[indexPath.row].title
-        
-        //        cell?.textLabel?.text = checkArray[indexPath.row]
->>>>>>> master
         
         return cell!
     }
