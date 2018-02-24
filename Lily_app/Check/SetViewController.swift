@@ -13,15 +13,11 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //    タイトル
     @IBOutlet weak var TitleTextField: UITextField!
-<<<<<<< HEAD
     
     @IBOutlet var label1: UILabel!
     @IBOutlet var label2: UILabel!
    
 //     CheckTableViewのインデックス値を保持しておく変数
-=======
-    //     CheckTableViewのインデックス値を保持しておく変数
->>>>>>> master
     var CheckTableViewIndex : Int?
     var checkArray : Array<String> = []
     
@@ -30,7 +26,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
         
         //フォント
          navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
@@ -39,12 +34,9 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         TitleTextField.font = UIFont(name:"07LogoTypeGothic7", size:20)
         label1.font = UIFont(name:"07LogoTypeGothic7", size:17)
         label2.font = UIFont(name:"07LogoTypeGothic7", size:17)
-        
-        
-        
-=======
+       
         //------------------りりーデザイン-------------------------------//
->>>>>>> master
+
         //titletextfieldいじり
         let border = CALayer()
         let width = CGFloat(2.0)
@@ -100,13 +92,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-<<<<<<< HEAD
-        
-        
-         
-        
-=======
->>>>>>> master
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath as IndexPath) as! SetTableViewCell
         let saveData = realm.objects(CheckViewSaveData.self)
         
@@ -133,12 +118,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             cell.Button2!.alpha = 1.0
         }
-<<<<<<< HEAD
-        
-        
-        
-=======
->>>>>>> master
         return cell
     }
     
