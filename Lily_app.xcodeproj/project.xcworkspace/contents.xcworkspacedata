@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/Lilico/Desktop/Lily_app-master-2/camera.png">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/Lilico/Desktop/Lily_app-master-2/album.png">
+   </FileRef>
+   <FileRef
       location = "self:Lily_app.xcodeproj">
    </FileRef>
 </Workspace>

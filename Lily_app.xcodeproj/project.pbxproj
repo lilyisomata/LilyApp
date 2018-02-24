@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E58400D201CBA64001D2574 /* tag1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E58400B201CBA64001D2574 /* tag1.png */; };
+		1E58400F201CBCCE001D2574 /* tag2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E58400E201CBCCD001D2574 /* tag2.png */; };
 		1E7103121F10F2C4002EBF57 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7103111F10F2C4002EBF57 /* PresentViewController.swift */; };
+		1EB717F2202E7AF300B020A6 /* ロゴたいぷゴシック.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EB717F1202E7AF300B020A6 /* ロゴたいぷゴシック.otf */; };
+		1EB717F9202EDB3200B020A6 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EB717F7202EDB3100B020A6 /* camera.png */; };
+		1EB717FA202EDB3200B020A6 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EB717F8202EDB3100B020A6 /* album.png */; };
 		674003321ED98A8100E2A6E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674003311ED98A8100E2A6E5 /* ProfileViewController.swift */; };
 		67AEC8471EEBCD300088F289 /* CheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AEC8461EEBCD300088F289 /* CheckTableViewController.swift */; };
 		67AEC8491EEBD3BD0088F289 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AEC8481EEBD3BD0088F289 /* SetViewController.swift */; };
@@ -41,7 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E58400B201CBA64001D2574 /* tag1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tag1.png; path = Lily_app/tag1.png; sourceTree = "<group>"; };
+		1E58400E201CBCCD001D2574 /* tag2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tag2.png; path = Lily_app/tag2.png; sourceTree = "<group>"; };
 		1E7103111F10F2C4002EBF57 /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
+		1EB717F1202E7AF300B020A6 /* ロゴたいぷゴシック.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ロゴたいぷゴシック.otf"; sourceTree = "<group>"; };
+		1EB717F7202EDB3100B020A6 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = Lily_app/camera.png; sourceTree = "<group>"; };
+		1EB717F8202EDB3100B020A6 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = album.png; path = Lily_app/album.png; sourceTree = "<group>"; };
 		674003311ED98A8100E2A6E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		67AEC8461EEBCD300088F289 /* CheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewController.swift; sourceTree = "<group>"; };
 		67AEC8481EEBD3BD0088F289 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +125,12 @@
 				67C95AC01EC6F62000B3A0FF /* Lily_appTests */,
 				67C95ACB1EC6F62000B3A0FF /* Lily_appUITests */,
 				67C95AAA1EC6F62000B3A0FF /* Products */,
+				1E58400E201CBCCD001D2574 /* tag2.png */,
+				1E58400B201CBA64001D2574 /* tag1.png */,
 				67AEC84C1EEC04B60088F289 /* icon_114530_256.png */,
+				1EB717F1202E7AF300B020A6 /* ロゴたいぷゴシック.otf */,
+				1EB717F8202EDB3100B020A6 /* album.png */,
+				1EB717F7202EDB3100B020A6 /* camera.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -272,9 +287,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E58400D201CBA64001D2574 /* tag1.png in Resources */,
+				1E58400F201CBCCE001D2574 /* tag2.png in Resources */,
+				1EB717FA202EDB3200B020A6 /* album.png in Resources */,
+				1EB717F2202E7AF300B020A6 /* ロゴたいぷゴシック.otf in Resources */,
 				67AEC84D1EEC04B60088F289 /* icon_114530_256.png in Resources */,
 				67C95AB71EC6F62000B3A0FF /* LaunchScreen.storyboard in Resources */,
 				67C95AB41EC6F62000B3A0FF /* Assets.xcassets in Resources */,
+				1EB717F9202EDB3200B020A6 /* camera.png in Resources */,
 				67C95AB21EC6F62000B3A0FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5R6RHZMSSK;
 				INFOPLIST_FILE = Lily_app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.litech.Lily-app01";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5R6RHZMSSK;
 				INFOPLIST_FILE = Lily_app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.litech.Lily-app01";
 				PRODUCT_NAME = "$(TARGET_NAME)";
