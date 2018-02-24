@@ -75,6 +75,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="KYY-DY-yne"/>
+                    <connections>
+                        <outlet property="checkbutton" destination="TCa-vH-qYw" id="rPk-u7-bZq"/>
+                        <outlet property="profilebutton" destination="P9y-Zr-flT" id="7Fi-bg-pTU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,6 +374,8 @@
                     </view>
                     <connections>
                         <outlet property="TitleTextField" destination="hC6-if-Fi2" id="q2p-fi-10I"/>
+                        <outlet property="label1" destination="VUh-1k-M2Q" id="Nh5-82-8nb"/>
+                        <outlet property="label2" destination="I8o-B3-cXh" id="qVw-Ay-ajP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gwb-YA-dcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -388,7 +394,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Memo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nQs-XE-m0W">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nQs-XE-m0W">
                                 <rect key="frame" x="67" y="569" width="240" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -476,6 +482,7 @@
                     <connections>
                         <outlet property="cameraImageView" destination="86m-dh-L8E" id="H5X-xM-zgH"/>
                         <outlet property="dateTextField" destination="PNf-ag-lGv" id="N90-SP-PTw"/>
+                        <outlet property="memoTextView" destination="nQs-XE-m0W" id="ub7-qg-RaK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NvS-WR-9xb" userLabel="First Responder" sceneMemberID="firstResponder"/>

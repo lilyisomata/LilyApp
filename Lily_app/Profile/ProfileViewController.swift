@@ -37,9 +37,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //フォント設定
+     navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+        
+        
+        namelabel.font = UIFont(name:"07LogoTypeGothic7", size:20)
+        birthdaylabel.font = UIFont(name:"07LogoTypeGothic7", size:20)
+        nameTextField.font = UIFont(name:"07LogoTypeGothic7", size:25)
+        birthdayTextField.font = UIFont(name:"07LogoTypeGothic7", size:25)
 
-        namelabel.font = UIFont(name: "ロゴたいぷゴシック.otf", size: 20)
-        birthdaylabel.font = UIFont(name: "07LogoTypeGothic-Condense", size: 20)
+        
         
         //textfieldを打ち終わった時にキーボードを閉じるためのdelegate
         nameTextField.delegate = self

@@ -16,6 +16,8 @@ class CheckTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+       
+        
         //-------------------名前リストの取得-------------------------//
         
         //名前リストが既に存在するならそのリストを取得
@@ -37,12 +39,16 @@ class CheckTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       // フォント
+         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+        
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,7 +74,7 @@ class CheckTableViewController: UITableViewController {
         //tableviewのcellに表示されるtextはcheckArrayのcellのindexpathに入っているtext
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2")
               cell?.textLabel?.text = checkArray[indexPath.row]
-        
+        cell?.textLabel?.font = UIFont(name:"07LogoTypeGothic7", size:20)
       
         
         return cell!

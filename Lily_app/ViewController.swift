@@ -13,21 +13,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    //フォント設定ロゴたいぷゴシック
-   // guard; let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
-    
-    
+    @IBOutlet var checkbutton : UIButton!
+    @IBOutlet var profilebutton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //フォント設定ロゴたいぷゴシック
-       // guard let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
-        
-        
-        
+        checkbutton.titleLabel?.font = UIFont(name:"07LogoTypeGothic7", size:40)
+        profilebutton.titleLabel?.font = UIFont(name:"07LogoTypeGothic7", size:40)
         
         //アプリを開始するたびにUserDefaultsの中身をリセット
         let ud = UserDefaults.standard
@@ -37,7 +31,8 @@ class ViewController: UIViewController {
         //ud.removeObject(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)")
         
     }
-
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

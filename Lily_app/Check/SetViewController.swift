@@ -12,6 +12,10 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
 //    タイトル
     @IBOutlet weak var TitleTextField: UITextField!
+    
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var label2: UILabel!
+   
 //     CheckTableViewのインデックス値を保持しておく変数
     var CheckTableViewIndex : Int?
     
@@ -25,8 +29,15 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //フォント
+         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
         
-       
+        
+        TitleTextField.font = UIFont(name:"07LogoTypeGothic7", size:20)
+        label1.font = UIFont(name:"07LogoTypeGothic7", size:17)
+        label2.font = UIFont(name:"07LogoTypeGothic7", size:17)
+        
+        
         
         //titletextfieldいじり
         let border = CALayer()
@@ -82,9 +93,13 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //    UITableViewDataSourceのデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 10
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+         
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath as IndexPath) as! SetTableViewCell
         
@@ -113,6 +128,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             cell.Button2!.alpha = 1
         }
+        
         
         
         return cell

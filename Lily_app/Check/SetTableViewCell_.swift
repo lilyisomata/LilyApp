@@ -20,15 +20,13 @@ class SetTableViewCell: UITableViewCell, UITextFieldDelegate{
     @IBOutlet weak var textfield: UITextField!
     
    
-    
    
     // CheckTableViewとSetTableViewのインデックス値を保持しておく変数
     var key : String!
     var delegate: setTableViewCellDelegate!
     
     
-   
-    
+ 
   
     
     @IBAction func buttonPushed(_ sender: UIButton) {

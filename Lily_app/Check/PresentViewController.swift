@@ -54,6 +54,11 @@ class PresentViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //フォント
+         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+       
+        dateTextField.font = UIFont(name:"07LogoTypeGothic7", size:15)
+        
         dateTextField.delegate = self
 
         let border = CALayer()
@@ -90,8 +95,23 @@ class PresentViewController: UIViewController, UIImagePickerControllerDelegate, 
     } else {
     
     print("error")
+            
     //アラート
-            let alert: UIAlertController = UIAlertController(title: "Erorr", message: "カメラを起動できません", preferredStyle: .alert)
+            let alert:UIAlertController = UIAlertController(title: "Erorr", message: "カメラを起動できません", preferredStyle: .alert)
+            
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: { action in
+                        //ボタンが押された時の動作
+                        alert.resignFirstResponder()
+                        print("OKボタンが押されました!")
+                }
+                )
+            )
+            
+            present(alert, animated:  true, completion: nil)
             
         }
     }

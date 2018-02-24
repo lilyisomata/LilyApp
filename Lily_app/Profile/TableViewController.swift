@@ -25,7 +25,12 @@ class TableViewController: UITableViewController {
     var nameArray: Array<String> = []
     let ud = UserDefaults.standard
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+      
+        
         
         //-------------------名前リストの取得-------------------------//
         
@@ -46,12 +51,16 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //フォント設定
+         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+        
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+      
         tableView.separatorInset = .zero
         
     }
@@ -78,7 +87,7 @@ class TableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         cell?.textLabel?.text = nameArray[indexPath.row]
-                
+        cell?.textLabel?.font = UIFont(name:"07LogoTypeGothic7", size:20)
         return cell!
     }
  
@@ -122,15 +131,7 @@ class TableViewController: UITableViewController {
     
     
     
-//前回、
-// -「~didSelectRowAt indexPath~」で選択セルの番号を取得
-// -「prepare(for segue)」でセル番号の受け渡し
-// っていうことをしようとしてた気がするけど、それだとうまくいかんかった！
 
-// それはすごく簡単な理由で、didSelectRowよりも先にPrepareが呼ばれて、値の受け渡しが後になっちゃうから。
-// 上記2つのメソッドを用意してprint()で何かしら出力してみればよくわかると思う！
-    
-    
     
     
 }
