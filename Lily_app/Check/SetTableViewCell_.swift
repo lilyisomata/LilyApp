@@ -18,23 +18,12 @@ class SetTableViewCell: UITableViewCell, UITextFieldDelegate{
     @IBOutlet weak var Button2 : UIButton!
     @IBOutlet weak var textfield: UITextField!
     
-<<<<<<< HEAD
-   
-   
-=======
->>>>>>> master
     // CheckTableViewとSetTableViewのインデックス値を保持しておく変数
     let realm = try! Realm()
     var CheckViewIndexPath : Int!
     var indexPath : Int!
-    
-<<<<<<< HEAD
- 
-  
-=======
-    //    var key : String!
+
     var delegate: setTableViewCellDelegate!
->>>>>>> master
     
     @IBAction func buttonPushed(_ sender: UIButton) {
         if sender.alpha == 1 {
