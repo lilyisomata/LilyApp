@@ -27,7 +27,7 @@ class TableViewController: UITableViewController {
     var birthdayArray: Array<String> = []
     let ud = UserDefaults.standard
     
-<<<<<<< HEAD
+
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,12 +46,12 @@ class TableViewController: UITableViewController {
             ud.set(nameArray, forKey: "name")
         }
 
-=======
+
     // realmのインスタンスを生成
     let realm = try! Realm()
     
     override func viewWillAppear(_ animated: Bool) {
->>>>>>> master
+
         //tableViewの更新
         self.tableView.reloadData()
         
@@ -66,12 +66,9 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
         
-<<<<<<< HEAD
-      
-=======
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
->>>>>>> master
+
         tableView.separatorInset = .zero
         
     }
@@ -106,15 +103,14 @@ class TableViewController: UITableViewController {
     // セルの情報
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-<<<<<<< HEAD
+
         cell?.textLabel?.text = nameArray[indexPath.row]
         cell?.textLabel?.font = UIFont(name:"07LogoTypeGothic7", size:20)
-=======
+
         // セーブデータを取得
         let saveData = realm.objects(ProfileViewSaveData.self)
         cell?.textLabel?.text = saveData[indexPath.row].title
         
->>>>>>> master
         return cell!
     }
     
@@ -161,19 +157,6 @@ class TableViewController: UITableViewController {
         self.show(profileVC, sender: nil)
     }
     
-    
-    
-<<<<<<< HEAD
-
-=======
-    //前回、
-    // -「~didSelectRowAt indexPath~」で選択セルの番号を取得
-    // -「prepare(for segue)」でセル番号の受け渡し
-    // っていうことをしようとしてた気がするけど、それだとうまくいかんかった！
->>>>>>> master
-    
-    // それはすごく簡単な理由で、didSelectRowよりも先にPrepareが呼ばれて、値の受け渡しが後になっちゃうから。
-    // 上記2つのメソッドを用意してprint()で何かしら出力してみればよくわかると思う！
     
 }
 
