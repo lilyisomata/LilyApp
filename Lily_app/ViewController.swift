@@ -7,19 +7,21 @@
 //
 
 import UIKit
-
-
-
+import RealmSwift
 
 class ViewController: UIViewController {
     
+<<<<<<< HEAD
     @IBOutlet var checkbutton : UIButton!
     @IBOutlet var profilebutton: UIButton!
 
+=======
+>>>>>>> master
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+<<<<<<< HEAD
         checkbutton.titleLabel?.font = UIFont(name:"07LogoTypeGothic7", size:40)
         profilebutton.titleLabel?.font = UIFont(name:"07LogoTypeGothic7", size:40)
         
@@ -29,6 +31,17 @@ class ViewController: UIViewController {
         ud.removeObject(forKey: "check")
         ud.removeObject(forKey: "birthday")
         //ud.removeObject(forKey: "\(String(describing: CheckTableViewIndex!))\(indexPath.row)")
+=======
+        //フォント設定ロゴたいぷゴシック
+       // guard let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
+        
+        
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.deleteAll()
+        }
+>>>>>>> master
         
     }
     
