@@ -10,9 +10,11 @@ import UIKit
 import RealmSwift
 
 class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource ,setTableViewCellDelegate {
-    
     //    タイトル
     @IBOutlet weak var TitleTextField: UITextField!
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var label2: UILabel!
+    
     //     CheckTableViewのインデックス値を保持しておく変数
     var CheckTableViewIndex : Int?
     var checkArray : Array<String> = []
@@ -23,6 +25,12 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         //------------------りりーデザイン-------------------------------//
+        //フォント
+//        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+        
+        TitleTextField.font = UIFont(name:"07LogoTypeGothic7", size:20)
+        label1.font = UIFont(name:"07LogoTypeGothic7", size:17)
+        label2.font = UIFont(name:"07LogoTypeGothic7", size:17)
         //titletextfieldいじり
         let border = CALayer()
         let width = CGFloat(2.0)
@@ -73,7 +81,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 10
     }
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

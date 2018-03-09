@@ -54,6 +54,10 @@ class PresentViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //フォント
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+        dateTextField.font = UIFont(name:"07LogoTypeGothic7", size:15)
+        
         dateTextField.delegate = self
 
         let border = CALayer()

@@ -14,6 +14,9 @@
             <string>ChalkboardSE-Light</string>
             <string>ChalkboardSE-Regular</string>
         </array>
+        <array key="LaoSangamMN.ttf">
+            <string>LaoSangamMN</string>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -57,7 +60,7 @@
                                 <rect key="frame" x="80" y="264" width="186" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" pointSize="37"/>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Check">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,6 +78,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="KYY-DY-yne"/>
+                    <connections>
+                        <outlet property="checkbutton" destination="TCa-vH-qYw" id="1Sz-6u-wTf"/>
+                        <outlet property="profilebutton" destination="P9y-Zr-flT" id="BAf-Ny-wEK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,6 +377,8 @@
                     </view>
                     <connections>
                         <outlet property="TitleTextField" destination="hC6-if-Fi2" id="q2p-fi-10I"/>
+                        <outlet property="label1" destination="VUh-1k-M2Q" id="JwW-ec-nBZ"/>
+                        <outlet property="label2" destination="I8o-B3-cXh" id="gg4-AQ-WSe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gwb-YA-dcp" userLabel="First Responder" sceneMemberID="firstResponder"/>

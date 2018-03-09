@@ -39,6 +39,11 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //フォント設定
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
+       
+//        self.navigationController?.navigationItem.backBarButtonItem?.
+        
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
         
@@ -47,6 +52,7 @@ class TableViewController: UITableViewController {
         tableView.separatorInset = .zero
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

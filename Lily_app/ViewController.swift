@@ -11,13 +11,16 @@ import RealmSwift
 
 class ViewController: UIViewController {
     
+    @IBOutlet var checkbutton : UIButton!
+    @IBOutlet var profilebutton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //フォント設定ロゴたいぷゴシック
-       // guard let myfont = UIFont(name: "07LogoTypeGothic-Condense", size: 20) != nil else { return}
-        
+        checkbutton.titleLabel?.font = UIFont(name:"07LogoTypeGothic7", size:40)
+        profilebutton.titleLabel?.font = UIFont(name:"07LogoTypeGothic7", size:40)
+
         
         let realm = try! Realm()
         

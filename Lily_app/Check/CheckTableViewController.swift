@@ -11,7 +11,6 @@ import RealmSwift
 
 class CheckTableViewController: UITableViewController {
     
-    
     var image: UIImageView!
     var checkArray: Array<String> = []
     let ud = UserDefaults.standard
@@ -26,6 +25,8 @@ class CheckTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // フォント
+//        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "07LogoTypeGothic7", size: 10)!]
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
